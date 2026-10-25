@@ -1,0 +1,46 @@
+backend:
+  name: github
+  repo: REPO_PLACEHOLDER
+  branch: main
+locale: es
+media_folder: public/uploads
+public_folder: /uploads
+publish_mode: simple
+slug:
+  encoding: ascii
+  clean_accents: true
+collections:
+  - name: noticias
+    label: Noticias
+    label_singular: Noticia
+    folder: content/noticias
+    create: true
+    extension: json
+    format: json
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    summary: "{{title}} · {{category}}"
+    fields:
+      - {label: Título, name: title, widget: string}
+      - {label: Fecha, name: date, widget: datetime}
+      - {label: Categoría, name: category, widget: select, options: [Cañeros, Resultados, Jugadores, Opinión, Comunidad]}
+      - {label: Resumen, name: description, widget: text, hint: "Una o dos frases para la portada y al compartir la nota."}
+      - {label: Foto de portada, name: image, widget: image, required: false}
+      - {label: Descripción de la foto, name: image_alt, widget: string, required: false}
+      - {label: Autor, name: author, widget: string, default: Pasión Verde}
+      - {label: Visible en la web, name: published, widget: boolean, default: false, hint: "Desactívalo para guardar un borrador. Actívalo y guarda para publicar."}
+      - {label: Texto de la nota, name: body, widget: text, hint: "Separa los párrafos con una línea en blanco. Puedes pegar tu texto directamente."}
+  - name: configuracion
+    label: Configuración y patrocinadores
+    files:
+      - name: ajustes
+        label: Identidad y publicidad
+        file: content/ajustes.json
+        fields:
+          - {label: Nombre, name: nombre, widget: string}
+          - {label: Descripción, name: descripcion, widget: text}
+          - {label: Logo original, name: logo, widget: image, required: false}
+          - {label: Facebook (URL completa), name: facebook, widget: string, required: false}
+          - {label: Correo de contacto, name: contacto, widget: string, required: false}
+          - {label: Nombre del patrocinador, name: patrocinador, widget: string, required: false}
+          - {label: Banner del patrocinador, name: banner, widget: image, required: false}
+          - {label: Enlace del anuncio (https), name: enlace, widget: string, required: false}
