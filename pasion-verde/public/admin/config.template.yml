@@ -3,7 +3,7 @@ backend:
   repo: REPO_PLACEHOLDER
   branch: main
 locale: es
-media_folder: public/uploads
+media_folder: pasion-verde/public/uploads
 public_folder: /uploads
 publish_mode: simple
 slug:
@@ -13,7 +13,7 @@ collections:
   - name: noticias
     label: Noticias
     label_singular: Noticia
-    folder: content/noticias
+    folder: pasion-verde/content/noticias
     create: true
     extension: json
     format: json
@@ -34,7 +34,7 @@ collections:
     files:
       - name: ajustes
         label: Identidad y publicidad
-        file: content/ajustes.json
+        file: pasion-verde/content/ajustes.json
         fields:
           - {label: Nombre, name: nombre, widget: string}
           - {label: Descripción, name: descripcion, widget: text}
